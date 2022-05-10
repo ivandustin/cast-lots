@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-answer=$(curl 'https://www.random.org/integers/?num=1&min=0&max=1&col=1&base=10&format=plain&rnd=new' --silent)
-
-if [[ $answer -eq 1 ]]; then
-    answer="YES"
-else
-    answer="NO"
+result=$(curl 'https://www.random.org/integers/?num=1&min=0&max=1&col=1&base=10&format=plain&rnd=new' --silent --fail)
+if [[ $? -eq 0 ]]; then
+    if [[ $result -eq 1 ]]; then
+        echo "YES"
+    else
+        echo "NO"
+    fi
 fi
-
-echo "$answer"
