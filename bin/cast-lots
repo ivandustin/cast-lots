@@ -3,7 +3,7 @@ result=$(curl 'https://www.random.org/integers/?num=1&min=0&max=1&col=1&base=10&
 if [[ $? -eq 0 ]]; then
     if [[ $result -eq 1 ]]; then
         echo "YES"
-    else
+    elif [[ $result -eq 0 ]]; then
         echo "NO"
     fi
 fi
